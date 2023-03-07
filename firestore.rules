@@ -1,0 +1,15 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /transactions/{document=**} {
+
+      //if no user is logged then new documents cannot be created.
+      allow create: if
+        request.auth!= null;
+
+      //reading and deleting data is only allowed if uid of logged user matches uid of resource we're trying to fetch.
+      allow read, delete: if
+          request.auth.uid == resource.data.uid;
+    }
+  }
+}

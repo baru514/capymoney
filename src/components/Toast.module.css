@@ -1,0 +1,68 @@
+@keyframes toastslide {
+  from {right: -350px;}
+  to {right: 20px;}
+}
+.container{
+  width: 320px;
+  position: fixed;
+  background-color: #fff;
+  z-index: 2000;
+  top: 90px;
+  right: 20px;
+  font-size: 0.9em;
+  color: #333;
+  border-radius: 2px;
+  animation-name: toastslide;
+  animation-duration: 0.5s;
+}
+
+.text{
+  width: 80%;
+  margin: 8px 0;
+  margin-left: 20px;
+  padding-left: 15px;
+}
+
+.close{
+  color: #444;
+  margin-right: 1px;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0px 3px;
+  border-radius: 2px;
+  position: absolute;
+  top: 3px;
+  right: 2px;
+}
+
+.close:hover{
+  color: rgb(230, 0, 0);
+}
+
+@media (max-width: 700px){
+  .container{
+    width: 250px;
+  }
+  .toastTheme{
+    flex: 15px;
+  }
+  .text{
+    margin: 8px 8px;
+  }
+}
+
+.error .text {
+  border-left: 4px solid rgb(230, 0, 0);
+}
+.error{
+  background: rgb(230, 0, 0,0.05);
+}
+
+.success .text{
+  border-left: 4px solid rgb(0, 194, 0);
+}
+.success{
+  background: rgb(0, 194, 0, 0.05);
+}
+
